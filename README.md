@@ -67,7 +67,7 @@ family-menu-miniprogram/
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/yourusername/family-menu-miniprogram.git
+git clone https://github.com/fightforbelief/family-menu-miniprogram.git
 cd family-menu-miniprogram
 ```
 
