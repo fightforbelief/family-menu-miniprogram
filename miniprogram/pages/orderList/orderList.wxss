@@ -1,0 +1,162 @@
+/* pages/orderList/orderList.wxss */
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.date-selector {
+  background: #fff;
+  padding: 32rpx 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.date-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.date-value {
+  flex: 1;
+  text-align: right;
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+  margin: 0 20rpx;
+}
+
+.date-arrow {
+  font-size: 40rpx;
+  color: #ccc;
+}
+
+.order-list {
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.order-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.order-info {
+  flex: 1;
+}
+
+.guest-name {
+  display: block;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.visit-date {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.order-dishes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
+}
+
+.dish-tag {
+  background: #f5f5f5;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-count {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.order-actions {
+  display: flex;
+  gap: 12rpx;
+}
+
+.action-btn {
+  width: 100rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  font-size: 24rpx;
+  border: none;
+  border-radius: 28rpx;
+  padding: 0;
+}
+
+.action-btn::after {
+  border: none;
+}
+
+.action-btn.view {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.action-btn.delete {
+  background: #fff1f0;
+  color: #ff4d4f;
+}
+
+.special-requests {
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #eee;
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.special-requests .label {
+  color: #999;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 200rpx 0;
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: 32rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+}

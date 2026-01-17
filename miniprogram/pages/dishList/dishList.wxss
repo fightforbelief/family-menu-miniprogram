@@ -1,0 +1,309 @@
+/* pages/dishList/dishList.wxss */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+/* 菜系导航栏（顶部） */
+.cuisine-bar {
+  background: #fff;
+  border-bottom: 2rpx solid #eee;
+  flex-shrink: 0; /* 防止被压缩 */
+}
+
+.cuisine-scroll {
+  white-space: nowrap;
+}
+
+.cuisine-list {
+  display: flex;
+  padding: 24rpx 20rpx 16rpx;
+}
+
+.cuisine-item {
+  padding: 12rpx 32rpx;
+  margin-right: 20rpx;
+  background: #f5f5f5;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.cuisine-item.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+/* 主体内容区域 */
+.main-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  /* 确保有足够的空间 */
+  min-height: 0;
+}
+
+/* 左侧分类导航 */
+.category-nav {
+  width: 180rpx;
+  background: #f8f8f8;
+  flex-shrink: 0; /* 防止被压缩 */
+}
+
+.category-nav-item {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20rpx;
+  position: relative;
+}
+
+.category-nav-item.active {
+  background: #fff;
+}
+
+.category-nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6rpx;
+  height: 40rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 0 4rpx 4rpx 0;
+}
+
+.category-name {
+  font-size: 26rpx;
+  color: #333;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.category-nav-item.active .category-name {
+  color: #667eea;
+  font-weight: bold;
+}
+
+/* 右侧菜品内容区 */
+.dish-content {
+  flex: 1;
+  background: #fff;
+  /* 使用 box-sizing 确保 padding 包含在总高度内 */
+  box-sizing: border-box;
+}
+
+/* 内层容器 - 添加 padding */
+.dish-content-inner {
+  padding-bottom: 240rpx; /* 超大 padding，确保最后的内容可以完全显示 */
+  min-height: 100%;
+}
+
+/* 加载状态 */
+.loading {
+  padding: 100rpx 0;
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 分类组 */
+.category-group {
+  margin-bottom: 20rpx;
+}
+
+/* 分类标题 */
+.category-title {
+  display: flex;
+  align-items: center;
+  padding: 32rpx 24rpx 20rpx;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.title-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-right: 20rpx;
+}
+
+.title-line {
+  flex: 1;
+  height: 2rpx;
+  background: linear-gradient(to right, #ddd, transparent);
+}
+
+/* 菜品列表 */
+.dish-list {
+  padding: 0 24rpx;
+  background: #fff;
+}
+
+.dish-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.dish-item:last-child {
+  border-bottom: none;
+  /* 最后一个菜品增加额外的底部间距 */
+  padding-bottom: 40rpx;
+}
+
+/* 菜品图片 */
+.dish-image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 12rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+/* 菜品信息 */
+.dish-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140rpx;
+}
+
+.dish-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dish-desc {
+  font-size: 22rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+  line-height: 1.4;
+}
+
+.dish-ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+
+.ingredient {
+  font-size: 20rpx;
+  color: #999;
+  background: #f5f5f5;
+  padding: 4rpx 10rpx;
+  border-radius: 6rpx;
+}
+
+/* 添加按钮 */
+.dish-action {
+  margin-left: 20rpx;
+  flex-shrink: 0;
+}
+
+.add-btn {
+  width: 56rpx;
+  height: 56rpx;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 36rpx;
+  font-weight: normal;
+  line-height: 56rpx;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn::after {
+  border: none;
+}
+
+/* 空状态 */
+.empty {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 底部安全占位 - 确保内容不被遮挡 */
+.bottom-safe-area {
+  height: 240rpx;
+  background: #fff;
+}
+
+/* 购物车栏（底部） */
+.cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10rpx);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40rpx;
+  box-shadow: 0 -4rpx 12rpx rgba(0, 0, 0, 0.08);
+  z-index: 1000; /* 提高层级，确保在最上层 */
+}
+
+.cart-info {
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  position: relative;
+  font-size: 60rpx;
+  margin-right: 20rpx;
+}
+
+.cart-count {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  min-width: 36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  background: #ff4d4f;
+  color: #fff;
+  font-size: 20rpx;
+  text-align: center;
+  border-radius: 18rpx;
+  padding: 0 8rpx;
+}
+
+.cart-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.cart-btn {
+  padding: 20rpx 48rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}

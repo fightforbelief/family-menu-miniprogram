@@ -1,0 +1,23 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="app-name">{{appName}}</view>
+    <view class="subtitle">告诉本大厨，让本大厨来做！</view>
+  </view>
+
+  <view class="content">
+    <view class="button-group">
+      <button class="order-btn" bindtap="startOrdering">
+        <view class="btn-text">我要点菜！</view>
+      </button>
+
+      <button class="admin-btn" bindtap="goToAdmin">
+        <view class="btn-text">大厨专属按钮</view>
+      </button>
+    </view>
+  </view>
+
+  <view class="footer">
+    <text class="tip">五🐜～五🐜～五🐜～</text>
+  </view>
+</view>

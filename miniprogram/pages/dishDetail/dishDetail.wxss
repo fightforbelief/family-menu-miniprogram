@@ -1,0 +1,111 @@
+/* pages/dishDetail/dishDetail.wxss */
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 140rpx;
+}
+
+/* 加载状态 */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 菜品图片 */
+.dish-image {
+  width: 100%;
+  height: 500rpx;
+  display: block;
+  background: #f0f0f0;
+}
+
+/* 菜品信息区域 */
+.dish-info {
+  background: #fff;
+  margin-top: -40rpx;
+  border-radius: 40rpx 40rpx 0 0;
+  padding: 40rpx;
+}
+
+.dish-header {
+  margin-bottom: 24rpx;
+}
+
+.dish-name {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.dish-desc {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 24rpx;
+  padding: 20rpx;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  border-left: 6rpx solid #667eea;
+}
+
+/* 区块 */
+.section {
+  margin-top: 32rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+/* 食材标签 */
+.ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  background: #f9f9f9;
+  border-radius: 16rpx;
+  padding: 24rpx;
+}
+
+.ingredient-tag {
+  font-size: 26rpx;
+  color: #2e7d32;
+  background: #e8f5e9;
+  padding: 10rpx 20rpx;
+  border-radius: 20rpx;
+}
+
+/* 底部按钮 */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 40rpx;
+  background: #fff;
+  box-shadow: 0 -4rpx 12rpx rgba(0, 0, 0, 0.08);
+  z-index: 100;
+}
+
+.add-cart-btn {
+  width: 100%;
+  height: 88rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.add-cart-btn::after {
+  border: none;
+}

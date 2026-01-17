@@ -1,0 +1,38 @@
+<!--pages/admin/admin.wxml-->
+<view class="container">
+  <!-- 顶部标题 -->
+  <view class="header">
+    <text class="title">大厨工作台</text>
+    <text class="subtitle">管理订单和菜单</text>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="button-list">
+    <button class="action-btn btn-orders" bindtap="viewOrders">
+      <view class="btn-icon">📋</view>
+      <view class="btn-content">
+        <text class="btn-title">查看订单</text>
+        <text class="btn-desc">查看所有客人订单</text>
+      </view>
+      <text class="btn-arrow">→</text>
+    </button>
+
+    <button class="action-btn btn-menu" bindtap="manageMenu">
+      <view class="btn-icon">🍳</view>
+      <view class="btn-content">
+        <text class="btn-title">管理菜单</text>
+        <text class="btn-desc">编辑、删除、上下架菜品</text>
+      </view>
+      <text class="btn-arrow">→</text>
+    </button>
+
+    <button class="action-btn btn-add" bindtap="addNewDish">
+      <view class="btn-icon">➕</view>
+      <view class="btn-content">
+        <text class="btn-title">添加新菜品</text>
+        <text class="btn-desc">创建新菜品</text>
+      </view>
+      <text class="btn-arrow">→</text>
+    </button>
+  </view>
+</view>

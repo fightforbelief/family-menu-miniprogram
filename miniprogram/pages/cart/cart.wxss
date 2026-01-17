@@ -1,0 +1,167 @@
+/* pages/cart/cart.wxss */
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.content {
+  padding: 20rpx;
+  padding-bottom: 140rpx;
+}
+
+.cart-list {
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.dish-image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 12rpx;
+  margin-right: 20rpx;
+}
+
+.dish-info {
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.dish-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.dish-desc {
+  font-size: 24rpx;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.control-btn {
+  width: 48rpx;
+  height: 48rpx;
+  background: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.quantity {
+  min-width: 60rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.clear-btn-wrapper {
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+.clear-btn {
+  background: transparent;
+  color: #ff4d4f;
+  border: 1rpx solid #ff4d4f;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  padding: 16rpx 48rpx;
+}
+
+.clear-btn::after {
+  border: none;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 200rpx 0;
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: 32rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 48rpx;
+}
+
+.back-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  padding: 20rpx 60rpx;
+}
+
+.back-btn::after {
+  border: none;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40rpx;
+  box-shadow: 0 -4rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.total-info {
+  flex: 1;
+}
+
+.total-text {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.submit-btn {
+  padding: 20rpx 60rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.submit-btn::after {
+  border: none;
+}

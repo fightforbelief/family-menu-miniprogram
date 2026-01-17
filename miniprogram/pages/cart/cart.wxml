@@ -1,0 +1,38 @@
+<!--pages/cart/cart.wxml-->
+<view class="container">
+  <view class="content" wx:if="{{cart.length > 0}}">
+    <view class="cart-list">
+      <view class="cart-item" wx:for="{{cart}}" wx:key="_id">
+        <image class="dish-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="dish-info">
+          <view class="dish-name">{{item.name}}</view>
+        </view>
+        <view class="quantity-control">
+          <view class="control-btn" bindtap="decreaseQuantity" data-index="{{index}}">-</view>
+          <view class="quantity">{{item.quantity}}</view>
+          <view class="control-btn" bindtap="increaseQuantity" data-index="{{index}}">+</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="clear-btn-wrapper">
+      <button class="clear-btn" bindtap="clearCart">清空购物车</button>
+    </view>
+  </view>
+
+  <view class="empty" wx:else>
+    <view class="empty-icon">🛒</view>
+    <view class="empty-text">购物车是空的</view>
+    <navigator url="/pages/dishList/dishList" open-type="redirect">
+      <button class="back-btn">去选菜</button>
+    </navigator>
+  </view>
+
+  <!-- 底部提交按钮 -->
+  <view class="footer" wx:if="{{cart.length > 0}}">
+    <view class="total-info">
+      <text class="total-text">共 {{totalCount}} 道菜</text>
+    </view>
+    <button class="submit-btn" bindtap="submitOrder">提交订单</button>
+  </view>
+</view>

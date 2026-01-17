@@ -1,0 +1,60 @@
+<!--pages/orderList/orderList.wxml-->
+<view class="container">
+  <!-- 标题栏 -->
+  <view class="header">
+    <text class="title">订单列表</text>
+    <text class="subtitle">所有订单从新到旧排列</text>
+  </view>
+
+  <!-- 订单列表 -->
+  <scroll-view class="order-list" scroll-y wx:if="{{orders.length > 0}}">
+    <view 
+      class="order-item" 
+      wx:for="{{orders}}" 
+      wx:key="_id"
+      bindtap="viewOrderDetail"
+      data-id="{{item._id}}"
+    >
+      <!-- 订单头部 -->
+      <view class="order-header">
+        <view class="order-info">
+          <text class="guest-name">{{item.guestName || '匿名客人'}}</text>
+          <text class="visit-date">{{item.visitDate}} {{item.visitTime}}</text>
+        </view>
+      </view>
+
+      <!-- 菜品标签 -->
+      <view class="order-dishes">
+        <text class="dish-tag" wx:for="{{item.dishes}}" wx:for-item="dish" wx:key="dishId">
+          {{dish.dishName}} ×{{dish.quantity}}
+        </text>
+      </view>
+
+      <!-- 订单底部 -->
+      <view class="order-footer">
+        <text class="total-count">共 {{item.dishes.length}} 道菜</text>
+        <view class="order-actions" catchtap="stopPropagation">
+          <button 
+            class="action-btn delete" 
+            bindtap="deleteOrder" 
+            data-id="{{item._id}}"
+            data-index="{{index}}"
+          >
+            删除
+          </button>
+        </view>
+      </view>
+
+      <!-- 特殊要求 -->
+      <view class="special-requests" wx:if="{{item.specialRequests}}">
+        <text class="label">备注：</text>{{item.specialRequests}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 空状态 -->
+  <view class="empty" wx:else>
+    <view class="empty-icon">📝</view>
+    <text class="empty-text">暂无订单</text>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "desc": "小程序页面配置",
+  "rules": [{
+    "action": "allow",
+    "page": "*"
+  }]
+}

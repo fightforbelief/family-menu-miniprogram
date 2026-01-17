@@ -1,0 +1,82 @@
+<!--pages/orderConfirm/orderConfirm.wxml-->
+<view class="container">
+  <view class="content">
+    <!-- 菜品列表 -->
+    <view class="section">
+      <view class="section-title">已选菜品</view>
+      <view class="dish-list">
+        <view class="dish-item" wx:for="{{cart}}" wx:key="_id">
+          <image class="dish-image" src="{{item.image}}" mode="aspectFill"></image>
+          <view class="dish-info">
+            <view class="dish-name">{{item.name}}</view>
+            <view class="dish-quantity">x {{item.quantity}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 客人信息 -->
+    <view class="section">
+      <view class="section-title">客人信息（可选）</view>
+      <view class="form">
+        <view class="form-item">
+          <view class="label">姓名</view>
+          <input 
+            class="input" 
+            placeholder="请输入您的姓名" 
+            value="{{guestName}}"
+            bindinput="onGuestNameInput"
+          />
+        </view>
+        <view class="form-item">
+          <view class="label">电话</view>
+          <input 
+            class="input" 
+            type="number"
+            placeholder="请输入您的电话" 
+            value="{{guestPhone}}"
+            bindinput="onPhoneInput"
+          />
+        </view>
+      </view>
+    </view>
+
+    <!-- 拜访时间 -->
+    <view class="section">
+      <view class="section-title">拜访时间</view>
+      <view class="form">
+        <view class="form-item">
+          <view class="label">日期</view>
+          <picker mode="date" value="{{visitDate}}" start="{{currentDate}}" bindchange="onDateChange">
+            <view class="picker-value">{{visitDate || '请选择日期'}}</view>
+          </picker>
+        </view>
+        <view class="form-item">
+          <view class="label">时间</view>
+          <picker mode="time" value="{{visitTime}}" bindchange="onTimeChange">
+            <view class="picker-value">{{visitTime || '请选择时间'}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <!-- 特殊要求 -->
+    <view class="section">
+      <view class="section-title">特殊要求（可选）</view>
+      <view class="form">
+        <textarea 
+          class="textarea" 
+          placeholder="如：不要辣、少油少盐等" 
+          value="{{specialRequests}}"
+          bindinput="onSpecialRequestsInput"
+          maxlength="200"
+        />
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="footer">
+    <button class="submit-btn" bindtap="submitOrder">提交菜单</button>
+  </view>
+</view>

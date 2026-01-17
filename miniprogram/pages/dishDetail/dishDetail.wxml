@@ -1,0 +1,38 @@
+<!--pages/dishDetail/dishDetail.wxml-->
+<view class="container" wx:if="{{dish}}">
+  <!-- 菜品图片 -->
+  <image 
+    class="dish-image" 
+    src="{{dish.image}}" 
+    mode="aspectFill"
+  ></image>
+
+  <!-- 菜品信息 -->
+  <view class="dish-info">
+    <view class="dish-header">
+      <view class="dish-name">{{dish.name}}</view>
+    </view>
+
+    <!-- 描述 -->
+    <view class="dish-desc" wx:if="{{dish.description}}">{{dish.description}}</view>
+
+    <!-- 所需食材 -->
+    <view class="section">
+      <view class="section-title">🥗 所需食材</view>
+      <view class="ingredients">
+        <text class="ingredient-tag" wx:for="{{dish.ingredients}}" wx:key="index">
+          {{item}}
+        </text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="footer">
+    <button class="add-cart-btn" bindtap="addToCart">添加到购物车</button>
+  </view>
+</view>
+
+<view class="loading" wx:else>
+  <text>加载中...</text>
+</view>

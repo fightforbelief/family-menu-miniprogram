@@ -1,0 +1,117 @@
+<!--pages/dishList/dishList.wxml-->
+<view class="container">
+  <!-- 菜系导航（顶部） -->
+  <view class="cuisine-bar">
+    <scroll-view class="cuisine-scroll" scroll-x>
+      <view class="cuisine-list">
+        <view 
+          class="cuisine-item {{activeCuisine === item.cuisine_code ? 'active' : ''}}"
+          wx:for="{{cuisines}}"
+          wx:key="cuisine_code"
+          data-code="{{item.cuisine_code}}"
+          bindtap="switchCuisine"
+        >
+          {{item.cuisine}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 主体内容区域 -->
+  <view class="main-content">
+    <!-- 左侧分类导航 -->
+    <scroll-view class="category-nav" scroll-y>
+      <view 
+        class="category-nav-item {{activeCategory === item.category_code ? 'active' : ''}}"
+        wx:for="{{categories}}"
+        wx:key="category_code"
+        data-code="{{item.category_code}}"
+        bindtap="scrollToCategory"
+      >
+        <view class="category-name">{{item.category}}</view>
+      </view>
+    </scroll-view>
+
+    <!-- 右侧菜品列表 -->
+    <scroll-view 
+      class="dish-content" 
+      scroll-y
+      scroll-into-view="{{scrollIntoView}}"
+      scroll-with-animation="{{true}}"
+      bindscroll="onScroll"
+    >
+      <!-- 加载状态 -->
+      <view class="loading" wx:if="{{loading}}">
+        <text>加载中...</text>
+      </view>
+
+      <!-- 按分类分组显示菜品 -->
+      <block wx:else>
+        <view 
+          class="category-group"
+          wx:for="{{dishesGroupedByCategory}}"
+          wx:key="category_code"
+          id="category-{{item.category_code}}"
+        >
+          <!-- 分类标题 -->
+          <view class="category-title">
+            <view class="title-text">{{item.category}}</view>
+            <view class="title-line"></view>
+          </view>
+
+          <!-- 该分类下的菜品 -->
+          <view class="dish-list">
+            <view 
+              class="dish-item"
+              wx:for="{{item.dishes}}"
+              wx:for-item="dish"
+              wx:key="_id"
+            >
+              <!-- 菜品图片 -->
+              <image 
+                class="dish-image" 
+                src="{{dish.image}}" 
+                mode="aspectFill"
+                bindtap="viewDetail"
+                data-id="{{dish._id}}"
+              ></image>
+
+              <!-- 菜品信息 -->
+              <view class="dish-info" bindtap="viewDetail" data-id="{{dish._id}}">
+                <view class="dish-name">{{dish.name}}</view>
+                <view class="dish-desc" wx:if="{{dish.description}}">{{dish.description}}</view>
+              </view>
+
+              <!-- 添加按钮 -->
+              <view class="dish-action">
+                <button class="add-btn" bindtap="addToCart" data-dish="{{dish}}">
+                  +
+                </button>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 空状态 -->
+        <view class="empty" wx:if="{{dishesGroupedByCategory.length === 0}}">
+          <text>该菜系暂无菜品</text>
+        </view>
+
+        <!-- 底部安全占位，确保最后的内容不被购物车栏遮挡 -->
+        <view class="bottom-safe-area"></view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!-- 购物车按钮（底部） -->
+  <view class="cart-bar" bindtap="goToCart">
+    <view class="cart-info">
+      <view class="cart-icon">
+        🛒
+        <view class="cart-count" wx:if="{{totalCount > 0}}">{{totalCount}}</view>
+      </view>
+      <text class="cart-text">已选 {{totalCount}} 道菜</text>
+    </view>
+    <view class="cart-btn">去确认</view>
+  </view>
+</view>

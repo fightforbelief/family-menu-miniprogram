@@ -1,0 +1,57 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="container">
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+  
+  <scroll-view class="content" scroll-y wx:else>
+    <!-- 订单信息 -->
+    <view class="section">
+      <view class="section-title">订单信息</view>
+      <view class="info-row">
+        <text class="label">客人姓名</text>
+        <text class="value">{{order.guestName || '未留名'}}</text>
+      </view>
+      <view class="info-row" wx:if="{{order.guestPhone}}">
+        <text class="label">联系电话</text>
+        <text class="value">{{order.guestPhone}}</text>
+      </view>
+      <view class="info-row">
+        <text class="label">到访时间</text>
+        <text class="value">{{order.visitDate}} {{order.visitTime}}</text>
+      </view>
+      <view class="info-row" wx:if="{{order.specialRequests}}">
+        <text class="label">特殊要求</text>
+        <text class="value">{{order.specialRequests}}</text>
+      </view>
+    </view>
+    
+    <!-- 菜品列表 -->
+    <view class="section">
+      <view class="section-title">点的菜品</view>
+      <view class="dish-list">
+        <view class="dish-item" wx:for="{{order.dishes}}" wx:key="dishId">
+          <view class="dish-name">{{item.dishName}}</view>
+          <view class="dish-quantity">×{{item.quantity}}</view>
+        </view>
+      </view>
+      <view class="total-summary">
+        <text>共 {{order.dishes.length}} 道菜</text>
+      </view>
+    </view>
+    
+    <!-- 食材清单 -->
+    <view class="section" wx:if="{{ingredients.length > 0}}">
+      <view class="section-title">需要准备的食材</view>
+      <view class="ingredient-list">
+        <view class="ingredient-item" wx:for="{{ingredients}}" wx:key="name">
+          <view class="ingredient-name">{{item.name}}</view>
+          <view class="ingredient-count" wx:if="{{item.count > 1}}">×{{item.count}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部占位 -->
+    <view class="bottom-space"></view>
+  </scroll-view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "name": "getIngredients",
+  "version": "1.0.0",
+  "description": "获取材料清单",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

@@ -1,0 +1,50 @@
+<!--pages/ingredientList/ingredientList.wxml-->
+<view class="container">
+  <!-- 日期选择 -->
+  <view class="date-selector">
+    <view class="date-label">查看日期</view>
+    <picker mode="date" value="{{selectedDate}}" start="2020-01-01" end="2030-12-31" bindchange="onDateChange">
+      <view class="date-value">{{selectedDate}}</view>
+    </picker>
+  </view>
+
+  <!-- 统计信息 -->
+  <view class="stats">
+    <view class="stat-item">
+      <view class="stat-value">{{totalOrders}}</view>
+      <view class="stat-label">个订单</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <view class="stat-value">{{ingredients.length}}</view>
+      <view class="stat-label">种材料</view>
+    </view>
+  </view>
+
+  <!-- 材料清单 -->
+  <view class="ingredient-list" wx:if="{{ingredients.length > 0}}">
+    <view class="list-header">
+      <view class="header-title">📋 购物清单</view>
+      <button class="copy-btn" bindtap="copyList">复制清单</button>
+    </view>
+
+    <view class="ingredient-item" wx:for="{{ingredients}}" wx:key="name">
+      <view class="ingredient-header">
+        <view class="ingredient-name">{{item.name}}</view>
+        <view class="ingredient-amount">{{item.totalAmount}}</view>
+      </view>
+      <view class="ingredient-dishes">
+        <text class="dishes-label">用于：</text>
+        <text class="dish-name" wx:for="{{item.dishes}}" wx:for-item="dish" wx:key="index">
+          {{dish}}{{index < item.dishes.length - 1 ? '、' : ''}}
+        </text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty" wx:else>
+    <view class="empty-icon">🛒</view>
+    <view class="empty-text">该日期暂无需要准备的材料</view>
+  </view>
+</view>

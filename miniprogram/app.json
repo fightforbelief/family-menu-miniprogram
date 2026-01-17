@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/dishList/dishList",
+    "pages/dishDetail/dishDetail",
+    "pages/cart/cart",
+    "pages/orderConfirm/orderConfirm",
+    "pages/admin/admin",
+    "pages/menuManage/menuManage",
+    "pages/dishEdit/dishEdit",
+    "pages/orderList/orderList",
+    "pages/orderDetail/orderDetail",
+    "pages/ingredientList/ingredientList"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#667eea",
+    "navigationBarTitleText": "我来点单！",
+    "navigationBarTextStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 30000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+}

@@ -1,0 +1,158 @@
+/* pages/ingredientList/ingredientList.wxss */
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.date-selector {
+  background: #fff;
+  padding: 32rpx 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.date-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.date-value {
+  flex: 1;
+  text-align: right;
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+  margin: 0 20rpx;
+}
+
+.date-arrow {
+  font-size: 40rpx;
+  color: #ccc;
+}
+
+.stats {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin: 0 20rpx 20rpx;
+  border-radius: 16rpx;
+  padding: 40rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 56rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.stat-divider {
+  width: 2rpx;
+  height: 80rpx;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ingredient-list {
+  padding: 0 20rpx 20rpx;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.header-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.copy-btn {
+  padding: 12rpx 24rpx;
+  background: #e6f7ff;
+  color: #1890ff;
+  border: 1rpx solid #91d5ff;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  line-height: 1;
+}
+
+.copy-btn::after {
+  border: none;
+}
+
+.ingredient-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.ingredient-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.ingredient-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.ingredient-amount {
+  font-size: 28rpx;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.ingredient-dishes {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.6;
+  background: #f5f5f5;
+  padding: 12rpx 16rpx;
+  border-radius: 8rpx;
+}
+
+.dishes-label {
+  color: #999;
+}
+
+.dish-name {
+  color: #333;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 200rpx 0;
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: 32rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #999;
+}

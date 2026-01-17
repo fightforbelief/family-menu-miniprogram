@@ -1,0 +1,61 @@
+<!--pages/menuManage/menuManage.wxml-->
+<view class="container">
+  <!-- 菜系筛选 -->
+  <view class="cuisine-filter">
+    <scroll-view class="cuisine-scroll" scroll-x>
+      <view class="cuisine-list">
+        <view 
+          class="cuisine-item {{activeCuisine === item.cuisine_code ? 'active' : ''}}"
+          wx:for="{{cuisines}}"
+          wx:key="cuisine_code"
+          bindtap="switchCuisine"
+          data-code="{{item.cuisine_code}}"
+        >
+          {{item.cuisine}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 菜品列表 -->
+  <view class="dish-list" wx:if="{{dishes.length > 0}}">
+    <view class="dish-item" wx:for="{{dishes}}" wx:key="_id">
+      <image 
+        class="dish-image" 
+        src="{{item.image}}" 
+        mode="aspectFill"
+      ></image>
+      <view class="dish-info">
+        <view class="dish-name">
+          {{item.name}}
+          <text class="status {{item.isAvailable ? 'available' : 'unavailable'}}">
+            {{item.isAvailable ? '上架' : '下架'}}
+          </text>
+        </view>
+        <view class="dish-category">分类：{{item.category_code}}</view>
+      </view>
+      <view class="action-btns">
+        <button class="action-btn edit" bindtap="editDish" data-id="{{item._id}}">编辑</button>
+        <button 
+          class="action-btn {{item.isAvailable ? 'offline' : 'online'}}" 
+          bindtap="toggleAvailable" 
+          data-id="{{item._id}}" 
+          data-available="{{item.isAvailable}}"
+        >
+          {{item.isAvailable ? '下架' : '上架'}}
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty" wx:else>
+    <text class="empty-icon">🍽️</text>
+    <text class="empty-text">{{activeCuisine === 'all' ? '暂无菜品' : '该菜系暂无菜品'}}</text>
+  </view>
+
+  <!-- 添加按钮 -->
+  <view class="add-btn" bindtap="addDish">
+    <text class="add-icon">+</text>
+  </view>
+</view>
